@@ -53,6 +53,6 @@ ENV PATH="/root/.pyenv/bin:$PATH"
 RUN pyenv install 3.11.4
 RUN pip3 install yq jq
 RUN curl -sSL https://install.python-poetry.org | python3 -
-RUN apt-get install -y git
+RUN apt-get install -y git inotify-tools
 EXPOSE 8888 6006
 ENTRYPOINT ["/run.sh"]
