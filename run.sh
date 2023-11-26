@@ -7,6 +7,6 @@
 # fi
 
 # Note: print mocked jupyter token so that we can run this container as if it is a notebook within Gradient V1
-echo "http://localhost:8888
+echo "http://localhost:8888"
 
-/usr/bin/code-server --bind-addr "0.0.0.0:8888" .
+/usr/bin/code-server --auth none --bind-addr "0.0.0.0:8888" .
