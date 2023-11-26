@@ -8,7 +8,6 @@ export PATH="/root/.local/bin:$PATH"
 export EDITOR=vim
 export TERM=xterm-256color
 export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
@@ -22,3 +21,6 @@ eval "$(pyenv virtualenv-init -)"
 unset VSCODE_GIT_IPC_HANDLE
 unset VSCODE_GIT_ASKPASS_MAIN
 unset GIT_ASKPASS
+
+git config --global user.name "Marcelo Caro"
+git config --global user.email "marcecaro@gmail.com"
