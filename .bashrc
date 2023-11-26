@@ -43,21 +43,10 @@ export COLOR_LIGHT_CYAN='\e[1;36m'
 export COLOR_LIGHT_GRAY='\e[0;37m'
 export COLOR_WHITE='\e[1;37m'
 
-case $TERM in
-    xterm*|rxvt*)
-        local TITLEBAR='\[\033]0;\u ${NEW_PWD}\007\]'
-        ;;
-    *)
-        local TITLEBAR=""
-        ;;
-    esac
-
-local UC=$COLOR_WHITE               # user's color
-[ $UID -eq "0" ] && UC=$COLOR_RED   # root's color
 
 ## Start pyenv
 eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
 ## End pyenv
 
-PS1="$TITLEBAR\n\[${UC}\]\u \[${COLOR_LIGHT_BLUE}\]\${PWD} \[${COLOR_BLACK}\]\$(vcprompt) \n\[${COLOR_LIGHT_GREEN}\]→\[${COLOR_NC}\] "  
+PS1="\[${COLOR_GREEN}\](\$(basename \${VIRTUAL_ENV})) \[${COLOR_BLACK}\](\$(vcprompt)) \[${COLOR_LIGHT_BLUE}\]\${PWD}  \[${COLOR_LIGHT_GREEN}\]:\[${COLOR_NC}\] "  
