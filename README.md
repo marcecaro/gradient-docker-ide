@@ -2,6 +2,6 @@
 # Gradient
 
 Container:
- - marcecaro/gradient-coder
+ - `marcecaro/gradient-coder`
 
 ![VM File Structure](docs/image.png)
