@@ -32,10 +32,10 @@ unset AWS_PROFILE
 if git rev-parse --git-dir >/dev/null 2>&1; then
     if ! git config --get --local user.name > /dev/null 2>&1; then
         echo "What is your proofpoint username? (e.g. jsmith)"
-        read PFPT_USER
-        echo "Setting ${PFPT_USER} as git user.name"
-        git config --set --local user.name $PFPT_USER  > /dev/null 2>&1
-        echo "Setting ${PFPT_USER}@proofpoint.com as git user.email"
-        git config --set --local user.email $PFPT_USER@proofpoint.com  >/dev/null 2>&1
+        read CUSER
+        echo "Setting ${CUSER} as git user.name"
+        git config --set --local user.name $CUSER  > /dev/null 2>&1
+        echo "Setting ${CUSER}@proofpoint.com as git user.email"
+        git config --set --local user.email $CUSER@google.com  >/dev/null 2>&1
     fi
 fi
