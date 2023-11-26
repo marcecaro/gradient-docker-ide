@@ -24,9 +24,7 @@ RUN code-server --force --install-extension redhat.vscode-yaml
 RUN code-server --force --install-extension ms-python.flake8
 RUN code-server --force --install-extension davidanson.vscode-markdownlint
 RUN code-server --force --install-extension anweber.statusbar-commands
-RUN code-server --force --install-extension amazonwebservices.aws-toolkit-vscode
 RUN code-server --force --install-extension boto3typed.boto3-ide
-RUN code-server --force --install-extension necatiarslan.aws-s3-vscode-extension
 RUN code-server --force --install-extension jebbs.plantuml
 RUN code-server --force --install-extension mechatroner.rainbow-csv
 RUN code-server --force --install-extension GrapeCity.gc-excelviewer
@@ -53,6 +51,6 @@ ENV PATH="/root/.pyenv/bin:$PATH"
 RUN pyenv install 3.11.4
 RUN pip3 install yq jq
 RUN curl -sSL https://install.python-poetry.org | python3 -
-RUN apt-get install -y git inotify-tools
+RUN apt-get install -y git inotify-tools plantuml
 EXPOSE 8888 6006
 ENTRYPOINT ["/run.sh"]
