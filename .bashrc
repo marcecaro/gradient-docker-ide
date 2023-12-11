@@ -13,13 +13,6 @@ export PATH="$HOME/.local/bin:$PYENV_ROOT/bin:$HOME/.poetry/bin:$PATH"
 source /usr/share/bash-completion/completions/git
 
 
-unset VSCODE_GIT_IPC_HANDLE
-unset VSCODE_GIT_ASKPASS_MAIN
-unset GIT_ASKPASS
-
-git config --global user.name "Marcelo Caro"
-git config --global user.email "marcecaro@gmail.com"
-
 export TERM=xterm-color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
@@ -49,4 +42,7 @@ eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
 ## End pyenv
 
-PS1="\[${COLOR_GREEN}\](\$(basename \${VIRTUAL_ENV})) \[${COLOR_BLACK}\](\$(vcprompt)) \[${COLOR_LIGHT_BLUE}\]\${PWD}  \[${COLOR_LIGHT_GREEN}\]:\[${COLOR_NC}\] "  
+git config --global user.name "Marcelo Caro"
+git config --global user.email "marcecaro@gmail.com"
+
+PS1="\[${COLOR_GREEN}\]\[${COLOR_BLACK}\](\$(vcprompt)) \[${COLOR_LIGHT_BLUE}\]\${PWD}\[${COLOR_LIGHT_GREEN}\]:\[${COLOR_NC}\] "  

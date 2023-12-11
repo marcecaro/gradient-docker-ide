@@ -10,8 +10,6 @@ RUN curl -fsSL https://code-server.dev/install.sh | sh
 
 # TODO: Install add ons
 
-#CMD jupyter lab --allow-root --ip=0.0.0.0 --no-browser --ServerApp.trust_xheaders=True --ServerApp.disable_check_xsrf=False --ServerApp.allow_remote_access=True --ServerApp.allow_origin='*' --ServerApp.allow_credentials=True
-COPY run.sh /run.sh
 COPY *.vsix /opt/code-server/extensions/
 RUN code-server --force --install-extension ms-python.python
 RUN code-server --install-extension /opt/code-server/extensions/GitHub.copilot-1.*.vsix
@@ -41,11 +39,13 @@ RUN code-server --force --install-extension ccimage.jsonviewer
 RUN code-server --force --install-extension aykutsarac.jsoncrack-vscode
 RUN code-server --force --install-extension oliversturm.fix-json
 RUN code-server --force --install-extension malo.copy-json-path
+RUN code-server --force --install-extension ms-python.black-formatter
 
 RUN mkdir -p /root/.local/bin
 RUN curl https://pyenv.run | bash 
 
 COPY .bashrc  /root/.bashrc 
+COPY run.sh /run.sh
 
 ENV PATH="/root/.pyenv/bin:$PATH"
 RUN pyenv install 3.11.4
@@ -54,5 +54,7 @@ RUN curl -sSL https://install.python-poetry.org | python3 -
 RUN apt-get install -y git inotify-tools plantuml mc tree
 
 COPY vcprompt /root/.local/bin/vcprompt
+
 EXPOSE 8888 6006
-ENTRYPOINT ["/run.sh"]
+
+CMD code-server --auth none --bind-addr "0.0.0.0:8888" --trusted-origins '*'

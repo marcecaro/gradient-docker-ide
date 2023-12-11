@@ -8,5 +8,8 @@
 
 # Note: print mocked jupyter token so that we can run this container as if it is a notebook within Gradient V1
 echo "http://localhost:8888"
+cat /root/.config/code-server/config.yaml  | grep password 
+#/usr/local/bin/python3 /usr/local/bin/jupyter-lab --allow-root --ip=0.0.0.0 --no-browser --ServerApp.trust_xheaders=True --ServerApp.disable_check_xsrf=False --ServerApp.allow_remote_access=True --ServerApp.allow_origin=* --ServerApp.allow_credentials=True &
+/usr/bin/jupyter --auth none --bind-addr "0.0.0.0:8888" . 
 
-/usr/bin/code-server --auth none --bind-addr "0.0.0.0:8888" .
+
